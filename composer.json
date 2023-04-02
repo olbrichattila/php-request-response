@@ -14,5 +14,7 @@
             "email": "olbrichattila@gmx.co.uk"
         }
     ],
-    "require": {}
+    "require": {
+        "aolbrich/php-di-container": "^1.0"
+    }
 }
