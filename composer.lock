@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af19713a3f90da104c412dbf8d94faa9",
+    "content-hash": "39a5bd61e0e82e2bb7aafa0be472a608",
     "packages": [
         {
             "name": "aolbrich/php-di-container",
@@ -1720,7 +1720,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=8.0.0"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
 }
