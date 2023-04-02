@@ -1,0 +1,18 @@
+{
+    "name": "olbrichattila/request-response",
+    "description": "Request and Response",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Olbrichattila\\RequestResponse\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Attila Olbrich",
+            "email": "olbrichattila@gmx.co.uk"
+        }
+    ],
+    "require": {}
+}
