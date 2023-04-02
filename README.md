@@ -187,8 +187,8 @@ $response->render();
 
 ## JSON Response
 ### You can alternatively render JSON responses
+```
 Example:
-
 ```
 use Aolbrich\RequestResponse\Http\Response\JsonResponse;
 
@@ -196,7 +196,6 @@ $jsonResponse = new JsonResponse();
 $jsonResponse->arrayToJson(['message' => 'Hello World']);
 $jsonResponse->render();
 ```
-
 ## The JsonResponse class:
 The class has additional functions next to the base response class:
 ```
