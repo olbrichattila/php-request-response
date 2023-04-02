@@ -1,11 +1,11 @@
 {
-    "name": "olbrichattila/request-response",
+    "name": "aolbrich/request-response",
     "description": "Request and Response",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Olbrichattila\\RequestResponse\\": "src/"
+            "Aolbrich\\RequestResponse\\": "src/"
         }
     },
     "authors": [
@@ -16,5 +16,8 @@
     ],
     "require": {
         "aolbrich/php-di-container": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0"
     }
 }
