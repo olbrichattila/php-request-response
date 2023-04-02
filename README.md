@@ -7,6 +7,8 @@ Note, if you initiate individually, you have to use the dependency injection to 
 
 ```
 use Aolbrich\PhpDiContainer\Container;
+use Aolbrich\RequestResponse\Http\Request\Request;
+use Aolbrich\RequestResponse\Http\Response\ResponseInterface;
 
 $container =  new Container();
 
