@@ -20,6 +20,6 @@ class MinimumLengthValidationRule extends ValidationRuleBase implements Validati
 
     public function message(): string
     {
-        return "Value should minimun {$this->validationParam} characters long";
+        return "The value should minimun {$this->validationParam} characters long";
     }
 }

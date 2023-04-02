@@ -19,6 +19,6 @@ class MinimumValidationRule extends ValidationRuleBase implements ValidationRule
 
     public function message(): string
     {
-        return "Value should be more or equal then {$this->validationParam}";
+        return "The value should be more or equal then {$this->validationParam}";
     }
 }

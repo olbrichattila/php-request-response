@@ -1,6 +1,6 @@
 # Request, Response classes with request validator (With Dependency Injection)
 
-## Request
+# Request
 
 ### You can create request or response classes individually, or both of them with the following helper:
 Note, if you initiate individually, you have to use the dependency injection to initiate the class(es)
@@ -74,7 +74,7 @@ print_r($request->validationErrors()); // The fields errored with the error desc
 Array
 (
     [par1] => Required
-    [par2] => Value should be more or equal then 5
+    [par2] => The value should be more or equal then 5
     [par11] => Date format is incorrect
 )
 ```
@@ -111,7 +111,7 @@ $validated = $request->validate(
 
 ```
 ### Create your own validation class:
-### 1. Create a new class following inheriging the class 
+### 1. Create a new class following inheriting the class 
 ```
 <?php
 
@@ -139,7 +139,7 @@ class YourValidationRule extends ValidationRuleBase implements ValidationRuleInt
 ```
 $request->setRule('customRule', <your namespace>\YourValidationRule::class);
 ```
-## Response
+# Response
 The response object renders a text (or using other class json) with HTTP headers and status code
 
 ### Functions
@@ -179,7 +179,8 @@ $response->setBody('404 Not Found');
 $response->render();
 ```
 
-Example Render JSON:
+### Example Render JSON:
+```
 $response->setHeader('Content-type', "application/json");
 $response->setBody(json_encode(['message' => 'Hello World']));
 $response->render();

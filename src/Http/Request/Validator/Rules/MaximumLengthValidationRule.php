@@ -19,6 +19,6 @@ class MaximumLengthValidationRule extends ValidationRuleBase implements Validati
 
     public function message(): string
     {
-        return "Value should maximum {$this->validationParam} characters long";
+        return "The value should maximum {$this->validationParam} characters long";
     }
 }
