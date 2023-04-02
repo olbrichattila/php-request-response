@@ -16,7 +16,7 @@ class RequestValidatorConfig implements RequestValidatorConfigInterface
         'min-length' => \Aolbrich\RequestResponse\Http\Request\Validator\Rules\MinimumLengthValidationRule::class,
         'max-length' => \Aolbrich\RequestResponse\Http\Request\Validator\Rules\MaximumLengthValidationRule::class,
         'regex' => \Aolbrich\RequestResponse\Http\Request\Validator\Rules\RegexValidationRule::class,
-        'contains' => \Aolbrich\RequestResponse\Http\Request\Validator\Rules\ContainsRequiredRule::class,
+        'contains' => \Aolbrich\RequestResponse\Http\Request\Validator\Rules\ContainsValidationRule::class,
         'range' => \Aolbrich\RequestResponse\Http\Request\Validator\Rules\RangeValidationRule::class,
         'email' => \Aolbrich\RequestResponse\Http\Request\Validator\Rules\EmailValidationRule::class,
         'date' => \Aolbrich\RequestResponse\Http\Request\Validator\Rules\DateValidationRule::class,

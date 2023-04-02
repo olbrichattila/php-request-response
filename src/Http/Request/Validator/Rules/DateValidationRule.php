@@ -8,17 +8,13 @@ use Aolbrich\RequestResponse\Http\Request\Validator\ValidationRuleInterface;
 
 class DateValidationRule extends ValidationRuleBase implements ValidationRuleInterface
 {
-    private string $validationParam;
-
     public function applyRule(mixed $value, string $validationParam = ''): bool
     {
-        $this->validationParam = $validationParam;
-
         return (bool) strtotime($value);
     }
 
     public function message(): string
     {
-        return "Date format is incorrect, shoud be '{$this->validationParam}'";
+        return 'Date format is incorrect';
     }
 }

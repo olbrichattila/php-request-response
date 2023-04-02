@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Aolbrich\RequestResponse\Http\Request\Validator;
 
 use Aolbrich\RequestResponse\Http\Request\RequestInterface;
+use Aolbrich\RequestResponse\Http\Request\Validator\Rules\Exception\RequestValidationRuleException;
 use Closure;
 
 class RequestValidator implements RequestValidatorInterface
@@ -26,6 +27,11 @@ class RequestValidator implements RequestValidatorInterface
 
         foreach ($validationRules as $field => $validationRuleName) {
             $value = $params[$field] ?? null;
+            if (is_string($validationRuleName)) {
+                $this->applyValidations($params, $value, $field, $validationRuleName);
+
+                continue;
+            }
             if (is_callable($validationRuleName)) {
                 $validattionMessage = $validationRuleName($value);
                 if ($validattionMessage === null) {
@@ -36,8 +42,8 @@ class RequestValidator implements RequestValidatorInterface
 
                 continue;
             }
-            
-            $this->applyValidations($params, $value, $field, $validationRuleName);
+
+            throw new RequestValidationRuleException('Incorrect validator provided ' . $validationRuleName);
         }
 
         return $this;
@@ -84,13 +90,19 @@ class RequestValidator implements RequestValidatorInterface
         $filteredValidationRuleName = $ruleParams[0];
         $ruleParam = $ruleParams[1] ?? '';
         $validationRule = $this->validationRuleFactory->rule($filteredValidationRuleName);
-        $validationResult = $validationRule->validate($value, $ruleParam);
-
-        if ($validationResult === true) {
-            return true;
+        if ($validationRule instanceof Closure) {
+            $validationResult = $validationRule($value, $ruleParam);
+            if ($validationResult === null) {
+                return true;
+            }
+            $this->validationErrors[$field] = $validationResult;
+        } else {
+            $validationResult = $validationRule->validate($value, $ruleParam);
+            if ($validationResult === true) {
+                return true;
+            }
+            $this->validationErrors[$field] = $validationRule->message();
         }
-
-        $this->validationErrors[$field] = $validationRule->message();
 
         return false;
     }

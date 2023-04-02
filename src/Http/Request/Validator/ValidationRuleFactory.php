@@ -17,10 +17,13 @@ class ValidationRuleFactory
     {
     }
 
-    public function rule(string $ruleName): ValidationRuleInterface
+    public function rule(string $ruleName): ValidationRuleInterface|Closure
     {
         $ruleClass = $this->getValidationRuleByName($ruleName);
         if ($ruleClass) {
+            if($ruleClass instanceof Closure) {
+              return $ruleClass;
+            } 
             return new $ruleClass();
         }
 
@@ -32,7 +35,7 @@ class ValidationRuleFactory
         $this->requestValidatorConfig->setRule($ruleName, $rule);
     }
 
-    protected function getValidationRuleByName(string $ruleName): ?string
+    protected function getValidationRuleByName(string $ruleName): string|Closure|callable|null
     {
         $config = $this->requestValidatorConfig->getConfig();
 
